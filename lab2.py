@@ -58,7 +58,8 @@ def findGoalState(problem):
                 return goalState
 
 def goalTest(currentNode):
-  currentNode.location
+  if(currentNode.location == goalLocation):
+    return True
 
 currentNode = treeNode(findStartState(problem), 0)
 #Create fringe and add current node
