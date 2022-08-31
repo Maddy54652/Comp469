@@ -60,15 +60,19 @@ currentNode = treeNode(findStartState(problem), 0)
 #Create fringe and add current node
 fringe = []
 fringe.append(currentNode)
+#Looping through a million times so we do not infinite loop
 for i in 1000000:
   currentNode = fringe[0]
+  #checking if left side is available
   if(problem[currentNode[0].location[0]-1][currentNode[0].location[1]] != 1):
     parentNode = currentNode
     currentLocate = [currentNode[0].location[0], currentNode[0].location[1]]
     cost = currentNode.cost
+    #going down left side if it is available
     while(problem[currentLocate[0]-1][currentLocate[1]] != 1):
       currentLocate[0] -= 1
       cost+=1
+    #creating new node and adding it to fringe to be unpacked later
     currentNode = treeNode(currentLocate, parentNode, cost)
     fringe.append(currentNode)
     currentNode = fringe[0]
