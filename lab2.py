@@ -14,9 +14,16 @@ problem = [[1, 1, 1, 1, 1, 1, 1, 1, 1], [1, 0, 0, 0, 1, 0, 0, 0, 1], [1, 0, 0, 0
 #calculate cost
 
 class treeNode:
-  location
-  parent
-  cost
+  def __init__(l, c, p):
+    location = l
+    parent = p
+    cost = c
+  def updateLocation(l):
+    location = l
+  def updateParent(p):
+    parent = p
+  def updateCost(c):
+    cost = c
 
 #define start state
 def findStartState(problem):
@@ -36,3 +43,5 @@ def findStartState(problem):
 
 def goalTest(currentNode):
   currentNode.location
+
+currentNode = treeNode(findStartState(problem), 0)
