@@ -14,16 +14,10 @@ problem = [[1, 1, 1, 1, 1, 1, 1, 1, 1], [1, 0, 0, 0, 1, 0, 0, 0, 1], [1, 0, 0, 0
 
 #Defining the tree node
 class treeNode:
-  def __init__(l, c, p):
-    location = l
-    parent = p
-    cost = c
-  def updateLocation(l):
-    location = l
-  def updateParent(p):
-    parent = p
-  def updateCost(c):
-    cost = c
+  def __init__(self, l, c, p):
+    self.location = l
+    self.parent = p
+    self.cost = c
 
 #define start state
 def findStartState(problem):
@@ -57,7 +51,8 @@ def findGoalState(problem):
                 goalState.append(y)
                 return goalState
 
-def goalTest(currentNode):
+
+def goalTest(currentNode,goalLocation):
   if(currentNode.location == goalLocation):
     return True
 
@@ -68,10 +63,12 @@ fringe.append(currentNode)
 for i in 1000000:
   currentNode = fringe[0]
   if(problem[currentNode[0].location[0]-1][currentNode[0].location[1]] != 1):
-    currentNode.updateParent(currentNode)
-    while(problem[currentNode[0].location[0]-1][currentNode[0].location[1]] != 1):
-      currentLocate = [currentNode[0].location[0]-1, currentNode[0].location[1]]
-      currentNode.updateLocation(currentLocate)
-      currentNode.updateCost(currentNode.cost + 1)
+    parentNode = currentNode
+    currentLocate = [currentNode[0].location[0], currentNode[0].location[1]]
+    cost = currentNode.cost
+    while(problem[currentLocate[0]-1][currentLocate[1]] != 1):
+      currentLocate[0] -= 1
+      cost+=1
+    currentNode = treeNode(currentLocate, parentNode, cost)
     fringe.append(currentNode)
     currentNode = fringe[0]
