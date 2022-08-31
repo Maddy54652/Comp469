@@ -17,3 +17,14 @@ problem = [[1, 1, 1, 1, 1, 1, 1, 1, 1], [1, 0, 0, 0, 1, 0, 0, 0, 1], [1, 0, 0, 0
 def findStartState(problem):
     #go to 'R' in problem
     #return location of R
+    startState = []
+    x = 0
+    y = 0
+    for i in range(0,len(problem),1):
+        for j in range(0,len(problem[i]),1):
+            if(problem[i][j] == 'R'):
+                x = i
+                y = j
+                startState.append(x)
+                startState.append(y)
+                return startState
