@@ -6,7 +6,6 @@ Adam Larson and Madalyn Henderson
 #defining the problem that we will pass through
 problem = [[1, 1, 1, 1, 1, 1, 1, 1, 1], [1, 0, 0, 0, 1, 0, 0, 0, 1], [1, 0, 0, 0, 1, 0, 0, 'R', 1], [1, 0, 0, 0, 0, 0, 0, 0, 1], [1, 0, 0, 0, 0, 1, 0, 0, 1], [1, 1, 1, 0, 0, 1, 0, 0, 1], [1, 1, 1, 0, 0, 1, 1, 1, 1], [1, 1, 0, 0, 0, 0, 0, 'D', 1], [1, 1, 1, 1, 1, 1, 1, 1, 1]]
 
-#define start state
 #goalTest
 #create fringe
 #successor function
@@ -14,6 +13,12 @@ problem = [[1, 1, 1, 1, 1, 1, 1, 1, 1], [1, 0, 0, 0, 1, 0, 0, 0, 1], [1, 0, 0, 0
 #ask user for map to play
 #calculate cost
 
+class treeNode:
+  location
+  parent
+  cost
+
+#define start state
 def findStartState(problem):
     #go to 'R' in problem
     #return location of R
@@ -28,3 +33,6 @@ def findStartState(problem):
                 startState.append(x)
                 startState.append(y)
                 return startState
+
+def goalTest(currentNode):
+  currentNode.location
