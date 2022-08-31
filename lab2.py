@@ -66,8 +66,11 @@ fringe = []
 fringe.append(currentNode)
 for i in 1000000:
   currentNode = fringe[0]
-  while(problem[currentNode[0].location[0]-1][currentNode[0].location[1]] != 1):
+  if(problem[currentNode[0].location[0]-1][currentNode[0].location[1]] != 1):
     currentNode.updateParent(currentNode)
-    currentLocate = [currentNode[0].location[0]-1, currentNode[0].location[1]]
-    currentNode.updateLocation(currentLocate)
-    currentNode.updateCost(currentNode.cost + 1)
+    while(problem[currentNode[0].location[0]-1][currentNode[0].location[1]] != 1):
+      currentLocate = [currentNode[0].location[0]-1, currentNode[0].location[1]]
+      currentNode.updateLocation(currentLocate)
+      currentNode.updateCost(currentNode.cost + 1)
+    fringe.append(currentNode)
+    currentNode = fringe[0]
