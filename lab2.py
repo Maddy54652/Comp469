@@ -6,11 +6,8 @@ Adam Larson and Madalyn Henderson
 #defining the problem that we will pass through
 problem = [[1, 1, 1, 1, 1, 1, 1, 1, 1], [1, 0, 0, 0, 1, 0, 0, 0, 1], [1, 0, 0, 0, 1, 0, 0, 'R', 1], [1, 0, 0, 0, 0, 0, 0, 0, 1], [1, 0, 0, 0, 0, 1, 0, 0, 1], [1, 1, 1, 0, 0, 1, 0, 0, 1], [1, 1, 1, 0, 0, 1, 1, 1, 1], [1, 1, 0, 0, 0, 0, 0, 'D', 1], [1, 1, 1, 1, 1, 1, 1, 1, 1]]
 
-#goalTest
 #successor function
 #save plan and return solution
-#ask user for map to play
-#calculate cost
 
 #Defining the tree node
 class treeNode:
@@ -52,6 +49,7 @@ def findGoalState(problem):
                 return goalState
 
 
+#Goal test
 def goalTest(currentNode,goalLocation):
   if(currentNode.location == goalLocation):
     return True
@@ -61,6 +59,7 @@ currentNode = treeNode(findStartState(problem), 0)
 fringe = []
 fringe.append(currentNode)
 #Looping through a million times so we do not infinite loop
+#check for goal state cool guy
 for i in 1000000:
   currentNode = fringe[0]
   #checking if left side is available
