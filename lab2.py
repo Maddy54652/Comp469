@@ -54,13 +54,13 @@ def goalTest(currentNode,goalLocation):
   if(currentNode.location == goalLocation):
     return True
 
-currentNode = treeNode(findStartState(problem), 0)
+currentNode = treeNode(findStartState(problem), None,0) #making parent node NULL
 #Create fringe and add current node
 fringe = []
 fringe.append(currentNode)
 #Looping through a million times so we do not infinite loop
-#check for goal state cool guy
-for i in 1000000:
+#check for goal state
+for i in range 1000000:
   currentNode = fringe[0]
   #checking if left side is available
   if(problem[currentNode[0].location[0]-1][currentNode[0].location[1]] != 1):
